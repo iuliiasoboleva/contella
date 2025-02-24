@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Бордербокс для корректного расчета размеров */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 1);
+  background-image: url('/images/diamond.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 20px;
+  color: #ffffff; /* Белый текст по умолчанию */
+}
+
+a {
+  color: inherit; /* Наследовать цвет текста */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+a:hover {
+  text-decoration: underline; /* Добавляем подчеркивание при наведении */
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+@media (min-width: 450px) {
+  body {
+      background-size: contain;
+  }
+}
