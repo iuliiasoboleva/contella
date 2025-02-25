@@ -1,0 +1,25 @@
+.main-button {
+    border-radius: 1000px;
+    border-width: 1px;
+    padding: 20px 14px;
+    gap: 5px;
+    display: flex;
+    background: linear-gradient(180deg, #855FF3 0%, #B48DFD 100%);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 356px;
+}
+
+.main-button-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.main-button-text {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+}

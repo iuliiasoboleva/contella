@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Greeting from "./pages/Greeting";
 import OptionsPage from "./pages/OptionsPage";
 import CategoryPage from "./pages/CategoryPage";
+import GenerationsPage from "./pages/GenerationsPage";
+import AvatarSelection from "./pages/AvatarSelection";
+import Result from "./pages/Result";
 
 import BottomMenu from "./components/BottomMenu";
 
@@ -29,8 +32,8 @@ const menuConfig = {
     { id: 3, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
   "/generations": [
-    { id: 1, icon: "/icons/create.svg", alt: "Create", path: "/" },
-    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", label: "Генерации", path: "/generations", isMainButton: true  },
+    { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/" },
+    { id: 2, icon: "/icons/picture-color.svg", alt: "Gallery", label: "Генерации", path: "/generations", isMainButton: true  },
     { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/pricing" },
     { id: 4, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
@@ -55,6 +58,9 @@ const AppContent = () => {
         <Route path="/men" element={<OptionsPage />} />
         <Route path="/women" element={<OptionsPage />} />
         <Route path="/couples" element={<OptionsPage />} />
+        <Route path="/generations" element={<GenerationsPage />} />
+        <Route path="/select-avatar" element={<AvatarSelection />} />
+        <Route path="/result" element={<Result />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
       </Routes>
       {menuItems.length > 0 && <BottomMenu items={menuItems} />}

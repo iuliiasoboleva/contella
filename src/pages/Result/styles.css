@@ -1,0 +1,61 @@
+.result-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.result-photo {
+    max-width: 356px;
+    width: 100%;
+    height: 475px;
+    top: 201.6px;
+    left: 16px;
+    border-radius: 30px;
+}
+
+.result-buttons-block {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+    max-width: 356px;
+}
+
+.result-button {
+    height: 52px;
+    border-radius: 200px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background: rgba(19, 19, 19, 1);
+    backdrop-filter: blur(40px);
+    gap: 5px;
+    border: 1px solid rgba(132, 93, 243, 0.4);
+}
+
+.active {
+    width: 100%;
+}
+
+.result-button img {
+    width: 21px;
+    height: 21px;
+}
+
+.result-button p {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    font-weight: 500;
+    background: linear-gradient(90deg, #845DF3 0%, #C099FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,12 +1,10 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const BottomMenu = ({ items }) => {
-    const location = useLocation();
     const navigate = useNavigate();
 
-    // Определяем, какой путь считать "главным" для активных кнопок
     const mainButton = items.find(item => item.isMainButton);
 
     return (
