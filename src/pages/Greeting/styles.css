@@ -1,0 +1,100 @@
+.greeting-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting-top {
+    width: 100%;
+    height: 50vh;
+    background-image: url('/images/gallery.png');
+    background-position: center top -100px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.greeting-image {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
+}
+
+.greeting-container {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.greeting-button-selection {
+    display: flex;
+    gap: 10px;
+    border-radius: 200px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background: rgba(19, 19, 19, 1);
+    backdrop-filter: blur(40px);
+}
+
+.greeting-info {
+    margin-top: 20px;
+}
+
+.greeting-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    gap: 5px;
+    padding: 12px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #845DF3 0%, #C099FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+}
+
+.greeting-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: -0.03em;
+    font-family: 'Unbounded', sans-serif;
+    background: linear-gradient(90deg, #845DF3 0%, #C099FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    max-width: 240px;
+}
+
+.greeting-subtitle {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    max-width: 240px;
+}
+
+.greeting-subtitle span {
+    color: #383636;
+}

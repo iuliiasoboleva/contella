@@ -7,7 +7,7 @@ const services = [
         id: 1,
         title: "Нейрофото",
         icon: "/icons/gallery-minimalistic.svg",
-        link: "/next",
+        link: "/greeting",
         isActive: true,
     },
     {
