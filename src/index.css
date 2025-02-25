@@ -9,7 +9,7 @@ body {
   text-align: center;
   background-color: rgba(0, 0, 0, 1);
   background-image: url('/images/diamond.png');
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

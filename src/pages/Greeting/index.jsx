@@ -5,20 +5,19 @@ import "./styles.css";
 const Greeting = () => {
     const navigate = useNavigate();
 
+    // Данные для кнопок с маршрутами
     const buttonData = [
-        { text: "Мужчин", icon: "./icons/right-arrow-color.svg" },
-        { text: "Женщин", icon: "./icons/right-arrow-color.svg" },
-        { text: "Парные фото", icon: "./icons/right-arrow-color.svg" },
+        { text: "Мужчин", icon: "./icons/right-arrow-color.svg", route: "/men" },
+        { text: "Женщин", icon: "./icons/right-arrow-color.svg", route: "/women" },
+        { text: "Парные фото", icon: "./icons/right-arrow-color.svg", route: "/couples" },
     ];
 
     return (
         <div className="greeting-wrapper">
-            {/* Верхняя половина с фоновым изображением */}
             <div className="greeting-top">
                 <img className="greeting-image" src="/images/15.png" alt="15 photos" />
             </div>
 
-            {/* Нижняя половина с текстом и кнопками */}
             <div className="greeting-container">
                 <h2 className="greeting-title">Привет, ИМЯ!</h2>
                 <p className="greeting-subtitle">
@@ -29,8 +28,12 @@ const Greeting = () => {
                 <p className="greeting-subtitle greeting-info">Выбери стиль для</p>
 
                 <div className="greeting-button-selection">
-                    {buttonData.map(({ text, icon }, index) => (
-                        <button key={index} className="greeting-button">
+                    {buttonData.map(({ text, icon, route }, index) => (
+                        <button 
+                            key={index} 
+                            className="greeting-button"
+                            onClick={() => navigate(route)}
+                        >
                             <span className="greeting-button-text">{text}</span>
                             <img src={icon} alt="Colored right arrow" />
                         </button>

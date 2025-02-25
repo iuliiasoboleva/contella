@@ -7,14 +7,14 @@ const BottomMenu = ({ items }) => {
     const navigate = useNavigate();
 
     // Определяем, какой путь считать "главным" для активных кнопок
-    const isMainPage = location.pathname === "/" || location.pathname === "/greeting";
+    const mainButton = items.find(item => item.isMainButton);
 
     return (
         <div className="bottom-menu">
             {items.map((item) => (
                 <div
                     key={item.id}
-                    className={isMainPage && item.path === "/" ? "bottom-menu-button-active" : "bottom-menu-button"}
+                    className={mainButton && item.label ? "bottom-menu-button-active" : "bottom-menu-button"}
                     onClick={() => navigate(item.path)}
                 >
                     <img src={item.icon} alt={item.alt} />

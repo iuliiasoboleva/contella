@@ -13,6 +13,7 @@
     border-top-right-radius: 18.14px;
     border-width: 0.91px;
     border-top: 0.91px solid #171717;
+    z-index: 1000;
 }
 
 .bottom-menu-button-active {
