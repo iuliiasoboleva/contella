@@ -8,34 +8,48 @@ import CategoryPage from "./pages/CategoryPage";
 import GenerationsPage from "./pages/GenerationsPage";
 import AvatarSelection from "./pages/AvatarSelection";
 import Result from "./pages/Result";
+import Partner from "./pages/Partner";
+import Profile from "./pages/Profile";
 
 import BottomMenu from "./components/BottomMenu";
 
 import "./index.css";
 
 const optionsMenu = [
-  { id: 1, icon: "/icons/create.svg", alt: "Create", label: "Создать", path: "/create", isMainButton: true },
-  { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/pricing" },
-  { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/pricing" },
+  { id: 1, icon: "/icons/create.svg", alt: "Create", label: "Создать", path: "/women", isMainButton: true },
+  { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations" },
+  { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
   { id: 4, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
 ];
 
 const menuConfig = {
   "/": [
     { id: 1, icon: "/icons/colorfilter.svg", alt: "Stars", label: "Функции", path: "/", isMainButton: true },
-    { id: 2, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/pricing" },
+    { id: 2, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
     { id: 3, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
   "/greeting": [
     { id: 1, icon: "/icons/colorfilter.svg", alt: "Stars", label: "Функции", path: "/greeting", isMainButton: true },
-    { id: 2, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/pricing" },
+    { id: 2, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
     { id: 3, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
   "/generations": [
-    { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/" },
+    { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/women" },
     { id: 2, icon: "/icons/picture-color.svg", alt: "Gallery", label: "Генерации", path: "/generations", isMainButton: true  },
-    { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/pricing" },
+    { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
     { id: 4, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
+  ],
+  "/partner": [
+    { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/women" },
+    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations"  },
+    { id: 3, icon: "/icons/dollar-square-color.svg", alt: "Dollar", label: "Заработать", path: "/partner", isMainButton: true },
+    { id: 4, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
+  ],
+  "/profile": [
+    { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/women" },
+    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations"  },
+    { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner", isMainButton: true },
+    { id: 4, icon: "/icons/user-octagon-color.svg", alt: "User", label: "Профиль", path: "/profile", isMainButton: true },
   ],
   "/men": optionsMenu,
   "/women": optionsMenu,
@@ -61,6 +75,8 @@ const AppContent = () => {
         <Route path="/generations" element={<GenerationsPage />} />
         <Route path="/select-avatar" element={<AvatarSelection />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/partner" element={<Partner />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
       </Routes>
       {menuItems.length > 0 && <BottomMenu items={menuItems} />}
