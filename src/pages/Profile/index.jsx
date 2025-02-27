@@ -2,6 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
+const ProfileOption = ({ icon, text }) => (
+    <div className="profile-double-wrapper">
+        <div className="profile-double-text">
+            <img src={icon} alt={text} />
+            <p>{text}</p>
+        </div>
+        <img src="./icons/right-arrow.svg" alt="Right arrow" />
+    </div>
+);
+
 const Profile = () => {
     const navigate = useNavigate();
 
@@ -25,20 +35,8 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="profile-double-block">
-                    <div className="profile-double-wrapper">
-                        <div className="profile-double-text">
-                            <img src="./icons/earth.svg" alt="Language" />
-                            <p>Выбрать язык</p>
-                        </div>
-                        <img src="./icons/right-arrow.svg" alt="Right arrow" />
-                    </div>
-                    <div className="profile-double-wrapper">
-                        <div className="profile-double-text">
-                            <img src="./icons/question.svg" alt="Language" />
-                            <p>Служба поддержки</p>
-                        </div>
-                        <img src="./icons/right-arrow.svg" alt="Right arrow" />
-                    </div>
+                    <ProfileOption icon="./icons/earth.svg" text="Выбрать язык" />
+                    <ProfileOption icon="./icons/question.svg" text="Служба поддержки" />
                 </div>
             </div>
         </div>

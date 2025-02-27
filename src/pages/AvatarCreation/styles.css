@@ -1,0 +1,99 @@
+.avatar-creation-container {
+    flex-direction: column;
+    gap: 8px;
+    display: flex;
+    padding: 20px;
+}
+
+.avatar-creation-block {
+    margin-top: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;    
+    background: rgba(19, 19, 19, 1);
+    backdrop-filter: blur(40px);
+    gap: 8px;
+    border: 1px solid rgba(132, 93, 243, 0.4);
+    width: 100%;
+    border-radius: 30px;
+    max-width: 356px;
+}
+
+.avatar-creation-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: -0.03em;
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #845DF3 0%, #C099FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.avatar-creation-text {
+    max-width: 204px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    font-weight: 500;
+    color: #545454;
+}
+
+.avatar-creation-text span {
+    color: white;
+}
+
+.avatar-creation-input,
+.avatar-creation-add {
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background: rgba(19, 19, 19, 1);
+    backdrop-filter: blur(40px);
+    gap: 5px;
+    width: 100%;
+}
+
+.avatar-creation-input {
+    height: 56px;
+    border-radius: 200px;
+}
+
+.avatar-creation-add {
+    height: 241px;
+    border-radius: 30px;
+}
+
+.avatar-creation-input-text {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    text-align: center; 
+    color: #545454;   
+}
+
+.avatar-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    color: #545454;
+}
+
+.avatar-input::placeholder {
+    color: #545454;
+}

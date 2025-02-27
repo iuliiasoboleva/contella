@@ -7,9 +7,12 @@ import OptionsPage from "./pages/OptionsPage";
 import CategoryPage from "./pages/CategoryPage";
 import GenerationsPage from "./pages/GenerationsPage";
 import AvatarSelection from "./pages/AvatarSelection";
+import AvatarCreation from "./pages/AvatarCreation";
+import AvatarSetup from "./pages/AvatarSetup";
 import Result from "./pages/Result";
 import Partner from "./pages/Partner";
 import Profile from "./pages/Profile";
+import Subscribe from "./pages/Subscribe";
 
 import BottomMenu from "./components/BottomMenu";
 
@@ -74,9 +77,12 @@ const AppContent = () => {
         <Route path="/couples" element={<OptionsPage />} />
         <Route path="/generations" element={<GenerationsPage />} />
         <Route path="/select-avatar" element={<AvatarSelection />} />
+        <Route path="/create-avatar" element={<AvatarCreation />} />
+        <Route path="/setup-avatar" element={<AvatarSetup />} />
         <Route path="/result" element={<Result />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
       </Routes>
       {menuItems.length > 0 && <BottomMenu items={menuItems} />}
