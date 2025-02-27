@@ -1,17 +1,30 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru"> <!-- Поменял язык на "ru", если нужен русский -->
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/main.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000"> <!-- Установит цвет статус-бара в Telegram -->
+
   <title>Contella</title>
+
+  <!-- Иконка -->
+  <link rel="icon" type="image/svg+xml" href="/main.png" />
+
+  <!-- Подключение шрифтов -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
 </head>
 
 <body>
   <div id="root"></div>
+
+  <!-- Подключение Telegram API -->
+  <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Подключение основного скрипта -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

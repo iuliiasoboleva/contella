@@ -1,21 +1,22 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "./styles.css";
-import { cardData } from "../OptionsPage"; // Импортируем данные
+import { cardData } from "../OptionsPage";
 
 const images = import.meta.glob("/public/images/**/*.jpg", { eager: true });
 
 const generateImageList = (category) => {
     return Object.keys(images)
-        .filter((path) => path.includes(`${category}-prompt`)) // Фильтруем по категории
+        .filter((path) => path.includes(`${category}-prompt`))
         .map((path) => ({
-            img: path.replace("/public", ""), // Убираем /public
-            id: path.match(/(\d+)\.jpg$/)?.[1], // Извлекаем ID из имени файла
+            img: path.replace("/public", ""),
+            id: path.match(/(\d+)\.jpg$/)?.[1],
         }));
 };
 
 const CategoryPage = () => {
     const { categoryName } = useParams();
+    const navigate = useNavigate();
 
     const category = Object.values(cardData)
         .flat()
@@ -27,6 +28,22 @@ const CategoryPage = () => {
     const handleImageClick = (id) => {
         console.log(`Выбранное изображение ID: ${id}`);
     };
+
+    useEffect(() => {
+        if (window.Telegram && window.Telegram.WebApp) {
+            const WebApp = window.Telegram.WebApp;
+
+            WebApp.BackButton.show();
+            WebApp.BackButton.onClick(() => {
+                navigate(-1);
+            });
+
+            return () => {
+                WebApp.BackButton.hide();
+                WebApp.BackButton.offClick();
+            };
+        }
+    }, [navigate]);
 
     return (
         <div className="category-container">

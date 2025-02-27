@@ -31,32 +31,27 @@ const menuConfig = {
     { id: 2, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
     { id: 3, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
-  "/greeting": [
-    { id: 1, icon: "/icons/colorfilter.svg", alt: "Stars", label: "Функции", path: "/greeting", isMainButton: true },
-    { id: 2, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
-    { id: 3, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
-  ],
+  "/men": optionsMenu,
+  "/women": optionsMenu,
+  "/couples": optionsMenu,
   "/generations": [
     { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/women" },
-    { id: 2, icon: "/icons/picture-color.svg", alt: "Gallery", label: "Генерации", path: "/generations", isMainButton: true  },
+    { id: 2, icon: "/icons/picture-color.svg", alt: "Gallery", label: "Генерации", path: "/generations", isMainButton: true },
     { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
     { id: 4, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
   "/partner": [
     { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/women" },
-    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations"  },
+    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations" },
     { id: 3, icon: "/icons/dollar-square-color.svg", alt: "Dollar", label: "Заработать", path: "/partner", isMainButton: true },
     { id: 4, icon: "/icons/user-octagon.svg", alt: "User", path: "/profile" },
   ],
   "/profile": [
     { id: 1, icon: "/icons/create-monochrome.svg", alt: "Create", path: "/women" },
-    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations"  },
-    { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner", isMainButton: true },
+    { id: 2, icon: "/icons/picture.svg", alt: "Gallery", path: "/generations" },
+    { id: 3, icon: "/icons/dollar-square.svg", alt: "Dollar", path: "/partner" },
     { id: 4, icon: "/icons/user-octagon-color.svg", alt: "User", label: "Профиль", path: "/profile", isMainButton: true },
   ],
-  "/men": optionsMenu,
-  "/women": optionsMenu,
-  "/couples": optionsMenu,
 };
 
 const AppContent = () => {
@@ -65,6 +60,13 @@ const AppContent = () => {
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgba(0, 0, 0, 1)";
+
+    if (window.Telegram && window.Telegram.WebApp) {
+      const WebApp = window.Telegram.WebApp;
+      WebApp.expand();
+
+      console.log("Telegram WebApp инициализирован");
+    }
   }, []);
 
   return (

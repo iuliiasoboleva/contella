@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const Greeting = () => {
     const navigate = useNavigate();
+    const [userName, setUserName] = useState("Гость");
 
-    // Данные для кнопок с маршрутами
+    useEffect(() => {
+        setTimeout(() => {
+            if (window.Telegram && window.Telegram.WebApp) {
+                const WebApp = window.Telegram.WebApp;
+                WebApp.expand();
+
+                const user = WebApp.initDataUnsafe?.user;
+                if (user && user.first_name) {
+                    setUserName(user.first_name);
+                } 
+            } else {
+                alert("WebApp API всё ещё не найден. Mini App открыт не через Telegram?");
+            }
+        }, 3000);
+    }, []);
+
     const buttonData = [
         { text: "Мужчин", icon: "./icons/right-arrow-color.svg", route: "/men" },
         { text: "Женщин", icon: "./icons/right-arrow-color.svg", route: "/women" },
@@ -19,7 +35,7 @@ const Greeting = () => {
             </div>
 
             <div className="greeting-container">
-                <h2 className="greeting-title">Привет, ИМЯ!</h2>
+                <h2 className="greeting-title">Привет, {userName}!</h2>
                 <p className="greeting-subtitle">
                     С тебя 15 фоток себя, с нас твоя полная цифровая копия! 
                     <span> Генерируй свои изображения в любом уголке мира</span>
