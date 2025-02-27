@@ -105,9 +105,9 @@
     width: 52px;
 }
 
-.active {
+.active-side {
     color: white;
-    border: 1px solid rgba(255, 255, 255, 1)
+    border-color: rgba(255, 255, 255, 1)
 }
 
 .choose-avatar {
@@ -116,7 +116,6 @@
     padding: 34px 33px;
     gap: 5px;
     width: 157px;
-    background: linear-gradient(180deg, #855FF3 0%, #B48DFD 100%);
     font-family: 'SF Pro Display', sans-serif;
     font-size: 14px;
     line-height: 18px;

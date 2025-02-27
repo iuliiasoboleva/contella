@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedImage } from "../../store/selectedImageSlice";
+import { categoriesData } from "../../mockData";
 import "./styles.css";
-import { cardData } from "../OptionsPage";
 
 const images = import.meta.glob("/public/images/**/*.jpg", { eager: true });
 
@@ -17,17 +19,28 @@ const generateImageList = (category) => {
 const CategoryPage = () => {
     const { categoryName } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const category = Object.values(cardData)
+    const selectedImage = useSelector((state) => state.selectedImage.selectedImage);
+
+    const category = Object.values(categoriesData)
         .flat()
         .find((item) => item.category === categoryName);
 
     const images = generateImageList(categoryName);
     const title = category ? category.text : "Категория";
 
-    const handleImageClick = (id) => {
-        console.log(`Выбранное изображение ID: ${id}`);
-    };
+    const handleImageClick = (id, img) => {
+        const avatarImg = selectedImage?.avatarImg || null;
+
+        dispatch(setSelectedImage({ id, img, avatarImg }));
+    
+        if (avatarImg) {
+            navigate("/setup-avatar");
+        } else {
+            navigate("/create-avatar");
+        }    
+    };    
 
     useEffect(() => {
         if (window.Telegram && window.Telegram.WebApp) {
@@ -58,9 +71,8 @@ const CategoryPage = () => {
                             key={id}
                             className="card-button-wrapper"
                             style={{ backgroundImage: `url(${img})` }}
-                            onClick={() => handleImageClick(id)}
-                        >
-                        </div>
+                            onClick={() => handleImageClick(id, img)}
+                        ></div>
                     ))
                 ) : (
                     <p className="no-images-text">Изображения не найдены</p>

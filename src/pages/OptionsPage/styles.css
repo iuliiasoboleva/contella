@@ -167,3 +167,19 @@ select::-ms-expand {
     border: none;
     cursor: pointer;
 }
+
+.tooltip {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    font-family: 'Unbounded', sans-serif;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}

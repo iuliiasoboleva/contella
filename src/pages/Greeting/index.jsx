@@ -5,6 +5,7 @@ import "./styles.css";
 const Greeting = () => {
     const navigate = useNavigate();
     const [userName, setUserName] = useState("Гость");
+    const [tooltipVisible, setTooltipVisible] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
@@ -15,7 +16,7 @@ const Greeting = () => {
                 const user = WebApp.initDataUnsafe?.user;
                 if (user && user.first_name) {
                     setUserName(user.first_name);
-                } 
+                }
             } else {
                 alert("WebApp API всё ещё не найден. Mini App открыт не через Telegram?");
             }
@@ -25,8 +26,17 @@ const Greeting = () => {
     const buttonData = [
         { text: "Мужчин", icon: "./icons/right-arrow-color.svg", route: "/men" },
         { text: "Женщин", icon: "./icons/right-arrow-color.svg", route: "/women" },
-        { text: "Парные фото", icon: "./icons/right-arrow-color.svg", route: "/couples" },
+        { text: "Парные фото", icon: "./icons/right-arrow-color.svg", route: null }, // Отключаем переход
     ];
+
+    const handleClick = (route) => {
+        if (route) {
+            navigate(route);
+        } else {
+            setTooltipVisible(true);
+            setTimeout(() => setTooltipVisible(false), 2000);
+        }
+    };
 
     return (
         <div className="greeting-wrapper">
@@ -45,14 +55,18 @@ const Greeting = () => {
 
                 <div className="greeting-button-selection">
                     {buttonData.map(({ text, icon, route }, index) => (
-                        <button 
-                            key={index} 
-                            className="greeting-button"
-                            onClick={() => navigate(route)}
-                        >
-                            <span className="greeting-button-text">{text}</span>
-                            <img src={icon} alt="Colored right arrow" />
-                        </button>
+                        <div key={index} className="greeting-button-wrapper">
+                            <button
+                                className="greeting-button"
+                                onClick={() => handleClick(route)}
+                            >
+                                <span className="greeting-button-text">{text}</span>
+                                <img src={icon} alt="Colored right arrow" />
+                            </button>
+                            {text === "Парные фото" && tooltipVisible && (
+                                <div className="tooltip">Скоро реализуем</div>
+                            )}
+                        </div>
                     ))}
                 </div>
             </div>

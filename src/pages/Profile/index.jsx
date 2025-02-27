@@ -35,7 +35,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="profile-double-block">
-                    <ProfileOption icon="./icons/earth.svg" text="Выбрать язык" />
+                    {/* <ProfileOption icon="./icons/earth.svg" text="Выбрать язык" /> */}
                     <ProfileOption icon="./icons/question.svg" text="Служба поддержки" />
                 </div>
             </div>

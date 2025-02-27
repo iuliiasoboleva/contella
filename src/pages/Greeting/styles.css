@@ -98,3 +98,7 @@
 .greeting-subtitle span {
     color: #383636;
 }
+
+.greeting-button-wrapper {
+    position: relative;
+}

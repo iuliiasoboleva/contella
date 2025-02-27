@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import Home from "./pages/Home";
 import Greeting from "./pages/Greeting";
@@ -15,6 +16,7 @@ import Profile from "./pages/Profile";
 import Subscribe from "./pages/Subscribe";
 
 import BottomMenu from "./components/BottomMenu";
+import { store } from "./store/store";
 
 import "./index.css";
 
@@ -76,7 +78,7 @@ const AppContent = () => {
         <Route path="/greeting" element={<Greeting />} />
         <Route path="/men" element={<OptionsPage />} />
         <Route path="/women" element={<OptionsPage />} />
-        <Route path="/couples" element={<OptionsPage />} />
+        {/* <Route path="/couples" element={<OptionsPage />} /> */}
         <Route path="/generations" element={<GenerationsPage />} />
         <Route path="/select-avatar" element={<AvatarSelection />} />
         <Route path="/create-avatar" element={<AvatarCreation />} />
@@ -94,9 +96,13 @@ const AppContent = () => {
 
 function App() {
   return (
+    <Provider store={store}>
+
     <Router>
       <AppContent />
     </Router>
+    </Provider>
+
   );
 }
 

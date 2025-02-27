@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import MainButton from "../../components/MainButton";
 import "./styles.css";
 
@@ -8,23 +9,25 @@ const AvatarSetup = () => {
     const [selectedRatio, setSelectedRatio] = useState("1:1");
     const [photoCount, setPhotoCount] = useState(4);
 
+    const selectedImage = useSelector((state) => state.selectedImage.selectedImage);
+    const avatarImg = selectedImage?.avatarImg || null;
+
     const handleRatioChange = (ratio) => {
         setSelectedRatio(ratio);
     };
 
     const handleIncrease = () => {
-        setPhotoCount((prev) => prev + 1);
+        setPhotoCount((prev) => (prev < 4 ? prev + 1 : 4));
     };
 
     const handleDecrease = () => {
-        setPhotoCount((prev) => (prev > 1 ? prev - 1 : 1)); // Минимальное значение 1
+        setPhotoCount((prev) => (prev > 1 ? prev - 1 : 1));
     };
 
-    // Определяем стили для изображения в зависимости от соотношения сторон
     const imageStyle = {
         aspectRatio: selectedRatio === "1:1" ? "1 / 1" :
-                     selectedRatio === "9:16" ? "9 / 16" :
-                     "16 / 9"
+            selectedRatio === "9:16" ? "9 / 16" :
+                "16 / 9"
     };
 
     return (
@@ -32,18 +35,28 @@ const AvatarSetup = () => {
             <div className="avatar-setup-title-block">
                 <h1 className="avatar-setup-title">Создать</h1>
             </div>
-            <img className="avatar-setup-image" src="./images/travel-prompt/4.jpg" alt="Avatar" style={imageStyle} />
+            <div className="avatar-setup-image-wrapper">
+                <img className="avatar-setup-image" src="./images/travel-prompt/4.jpg" alt="Avatar" style={imageStyle} />
+            </div>
             <div className="setup-buttons">
                 <div className="photo-size">
                     <p className="photo-size-text">Соотношение сторон</p>
                     <div className="sides">
-                        <div className={`side-one ${selectedRatio === "1:1" ? "active" : ""}`} onClick={() => handleRatioChange("1:1")}>1:1</div>
-                        <div className={`side-two ${selectedRatio === "9:16" ? "active" : ""}`} onClick={() => handleRatioChange("9:16")}>9:16</div>
-                        <div className={`side-three ${selectedRatio === "16:9" ? "active" : ""}`} onClick={() => handleRatioChange("16:9")}>16:9</div>
+                        <div className={`side-one ${selectedRatio === "1:1" ? "active-side" : ""}`} onClick={() => handleRatioChange("1:1")}>1:1</div>
+                        <div className={`side-two ${selectedRatio === "9:16" ? "active-side" : ""}`} onClick={() => handleRatioChange("9:16")}>9:16</div>
+                        <div className={`side-three ${selectedRatio === "16:9" ? "active-side" : ""}`} onClick={() => handleRatioChange("16:9")}>16:9</div>
                     </div>
                 </div>
                 <div className="setup-buttons-right">
-                    <div className="choose-avatar">
+                    <div
+                        className="choose-avatar"
+                        onClick={() => navigate("/select-avatar")}
+                        style={{
+                            background: avatarImg
+                                ? `url(${avatarImg}) center/cover no-repeat`
+                                : "linear-gradient(180deg, #855FF3 0%, #B48DFD 100%)"
+                        }}
+                    >
                         <img className="choose-avatar-image" src="./icons/add.svg" alt="Add photo" />
                         <p className="choose-avatar-text">Выбери аватар</p>
                     </div>
@@ -57,7 +70,7 @@ const AvatarSetup = () => {
                     </div>
                 </div>
             </div>
-            <MainButton icon="./icons/wand.svg" text="Создать" onClick={() => { }} />
+            <MainButton icon="./icons/wand.svg" text="Создать" onClick={() => navigate("/result")} />
         </div>
     );
 };

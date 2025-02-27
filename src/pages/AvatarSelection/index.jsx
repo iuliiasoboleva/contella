@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSelectedImage } from "../../store/selectedImageSlice"; // Импортируем action
+import { cardData } from "../../mockData";
 import "./styles.css";
-
-export const cardData = [
-    { img: "./images/travel-prompt/4.jpg", text: "Путешествия", category: "travel", id: 1 },
-];
 
 const TOTAL_BLOCKS = 15;
 
 const AvatarSelection = () => {
     const navigate = useNavigate();
-    const [selectedIds, setSelectedIds] = useState([]);
+    const dispatch = useDispatch();
+    const [selectedId, setSelectedId] = useState(null);
 
     const placeholdersCount = Math.max(0, TOTAL_BLOCKS - cardData.length);
     const placeholders = new Array(placeholdersCount).fill(null);
 
     const blocks = [...cardData, ...placeholders];
 
-    const toggleSelection = (id) => {
-        setSelectedIds((prev) =>
-            prev.includes(id) ? prev.filter((selectedId) => selectedId !== id) : [...prev, id]
-        );
+    const handleSelection = (item) => {
+        setSelectedId(item.id);
+        dispatch(setSelectedImage({ avatarImg: item.img }));
+        window.scrollTo(0, 0);
+        navigate("/setup-avatar");
     };
 
     return (
@@ -34,11 +35,11 @@ const AvatarSelection = () => {
                     item ? (
                         <div
                             key={item.id}
-                            className="avatar-selection-button-wrapper"
+                            className={`avatar-selection-button-wrapper ${selectedId === item.id ? "selected" : ""}`}
                             style={{ backgroundImage: `url(${item.img})` }}
-                            onClick={() => toggleSelection(item.id)}
+                            onClick={() => handleSelection(item)}
                         >
-                            {selectedIds.includes(item.id) && (
+                            {selectedId === item.id && (
                                 <img
                                     className="avatar-selection-image-select"
                                     src="./icons/select-icon.svg"
