@@ -14,6 +14,8 @@ import Result from "./pages/Result";
 import Partner from "./pages/Partner";
 import Profile from "./pages/Profile";
 import Subscribe from "./pages/Subscribe";
+import HowItWorks from "./pages/HowItWorks";
+import Guide from "./pages/Guide";
 
 import BottomMenu from "./components/BottomMenu";
 import { store } from "./store/store";
@@ -87,6 +89,8 @@ const AppContent = () => {
         <Route path="/partner" element={<Partner />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/subscribe" element={<Subscribe />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/how-guide" element={<Guide />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
       </Routes>
       {menuItems.length > 0 && <BottomMenu items={menuItems} />}
@@ -97,10 +101,9 @@ const AppContent = () => {
 function App() {
   return (
     <Provider store={store}>
-
-    <Router>
-      <AppContent />
-    </Router>
+      <Router>
+        <AppContent />
+      </Router>
     </Provider>
 
   );

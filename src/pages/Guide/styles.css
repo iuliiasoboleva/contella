@@ -1,0 +1,244 @@
+.guide-wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.guide-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-top {
+    width: 100%;
+    height: 50%;
+    background-image: url('/images/women-background.png');
+    background-position: center top -120px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.guide-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    height: auto;
+}
+
+.guide-container {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.guide-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    font-family: 'Unbounded', sans-serif;
+    background: linear-gradient(90deg, #845DF3 0%, #C099FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    max-width: 240px;
+    text-align: center;
+}
+
+.guide-subtitle {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    text-align: center;   
+    max-width: 250px; 
+    margin-bottom: 6px;
+}
+
+.guide-items {
+    background: #0E0E0E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 40px;
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 6px;
+}
+
+.guide-item {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.guide-item p,
+.guide-card p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    font-family: 'SF Pro Display', sans-serif;
+    text-align: left;
+}
+
+.guide-card p {
+    text-align: center;
+}
+
+.guide-cards {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.guide-card {
+    width: 100%;
+    border-radius: 30px;
+    padding: 20px;
+    background: #0E0E0E;
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(132, 93, 243, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-card img {
+    width: 17px;
+    height: 17px;
+}
+
+.guide-item span {
+    background: linear-gradient(90deg, #845DF3 0%, #C099FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.guide-column-items {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.guide-column-item {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.guide-photos {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.guide-photo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.guide-photo-block {
+    position: relative;
+}
+
+.guide-photo-absolute {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    position: absolute;
+}
+
+.guide-photo p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.guide-photo span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    margin-top: 8px;    
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+.guide-button {
+    border-radius: 30px;
+    justify-content: space-between;
+    padding: 5px 5px 5px 30px;
+    background: linear-gradient(180deg, #855FF3 0%, #B48DFD 100%);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.guide-button-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 50%;
+}
+
+.guide-button-text p {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    text-align: left;
+}
+
+.guide-button-text span {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.03em; 
+    text-align: left;   
+}
+
+.guide-button-add {
+    height: 136px;
+    border-radius: 24px;
+    background: rgba(126, 89, 233, 1);
+    width: 50%;
+    max-width: 136px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.guide-button-add img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+}
